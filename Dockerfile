@@ -1,4 +1,4 @@
-FROM node:13.7.0-stretch
+FROM node:13.7.0-stretch as base
 
 # Install deps
 RUN apt-get update && \
@@ -10,6 +10,7 @@ RUN apt-get update && \
     imagemagick git
 
 # Install ffmpeg
+FROM base as ffmpeg
 RUN mkdir "$HOME/ffmpeg_build" && cd "$HOME/ffmpeg_build" && \
     wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master && \
     tar xzvf fdk-aac.tar.gz && \
@@ -47,6 +48,7 @@ RUN mkdir "$HOME/ffmpeg_build" && cd "$HOME/ffmpeg_build" && \
     ln -s "$HOME/bin/ffprobe" /usr/local/bin/ffprobe
 
 # Install pisignage
+FROM ffmpeg as app
 RUN git clone -b  tokynet https://github.com/Tokynet/pisignage-server /usr/src/app && \
     cd /usr/src/app && \
     npm install

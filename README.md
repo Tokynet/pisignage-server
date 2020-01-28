@@ -1,5 +1,15 @@
 # pisignage-server
 
+**This is my fork of the code, minimal edits have been done to the code other than changing localhost for mongodb to allow the pisignage server to connect to a external mongodb server.**
+
+Most likely I will need to keep making small changes to make the pisignage server to work through a docker-compose file. **
+
+## Use this image at your own risk! ##
+**I accept nothing and deny everything!**
+
+
+# ========Original README follows========= #
+
 Server code to manage piSignage players in a LAN or Private Network or to setup your own server!
 
     run npm install command after git pull and before starting the server
