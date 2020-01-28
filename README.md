@@ -2,7 +2,7 @@
 
 **This is my fork of the code, minimal edits have been done to the code other than changing localhost for mongodb to allow the pisignage server to connect to a external mongodb server.**
 
-Most likely I will need to keep making small changes to make the pisignage server to work through a docker-compose file. **
+Most likely I will need to keep making small changes to make the pisignage server to work through a docker-compose file.
 
 ## Use this image at your own risk! ##
 **I accept nothing and deny everything!**
