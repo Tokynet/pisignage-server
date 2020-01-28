@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  pisign:
+    image: pisignserver
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - mongodb
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:4.2.3
+    ports:
+      - "27017"
+    restart: always
+    volumes: 
+      - pisign-db:/data/db
+    environment: 
+      MONGO_HOST: mongodb
+      MONGO_PORT: 27017
+      MONGO_DB: pisignage-server
+
+
+volumes:
+  pisign-db:
